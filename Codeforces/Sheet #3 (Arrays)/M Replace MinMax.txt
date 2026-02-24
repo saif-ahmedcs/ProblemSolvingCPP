@@ -1,0 +1,63 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+long long n;
+cin>>n;
+long long arr[n];
+
+
+
+
+  for (long long i=0; i<n; i++){
+
+     cin>>arr[i];
+
+   }
+
+long long minimum = arr[0];
+long long maximum = arr[0];
+
+  for (long long i=0; i<n; i++){
+
+     if (arr[i]<minimum){
+        minimum = arr[i];
+     }
+     if (arr[i]> maximum){
+        maximum = arr[i];
+     }
+
+  }
+
+
+long long original_min = minimum;
+long long original_max = maximum;
+
+
+
+
+  for (long long i=0; i<n; i++){
+
+    if (arr[i]== minimum) {
+        arr[i] = original_max;
+    }
+
+    else if (arr[i]==maximum){
+         arr[i] = original_min;
+    }
+
+  }
+
+
+  for (long long i=0; i<n; i++){
+
+    cout<<arr[i]<<" ";
+
+
+  }
+
+    return 0;
+}

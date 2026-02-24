@@ -1,0 +1,46 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+int n;
+cin>>n;
+long long fib[51];
+long long theFibNumber;
+
+ for (int i=0; i<=n; i++){
+
+     if (i==0){
+     fib[i]=0;
+     theFibNumber=fib[i];
+        continue;
+     }
+
+     else if (i==1){
+      fib[i]=0;
+    theFibNumber = fib[i];
+
+    }
+
+    else if (i==2){
+        fib[i]=1;
+        theFibNumber = fib[i];
+
+    }
+
+    else {
+        fib[i] = fib[i-1] + fib[i-2];
+        theFibNumber = fib[i];
+
+    }
+ }
+
+
+ cout<<theFibNumber<<endl;
+
+
+
+    return 0;
+}
