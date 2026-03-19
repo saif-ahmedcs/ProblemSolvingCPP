@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+int n;
+cin>>n;
+long long arr[n];
+int oparr[n]={0};
+
+  for (int i=0; i<n; i++){
+    cin>>arr[i];
+  }
+
+
+  for (int i=0; i<n; i++){
+
+   while (arr[i]%2 == 0){
+    arr[i]/=2;
+    oparr[i]++;
+  }
+
+  }
+
+int minimum = oparr[0];
+
+
+  for (int i=0; i<n; i++){
+
+    if (oparr[i] < minimum){
+        minimum = oparr[i];
+    }
+  }
+
+
+cout<<minimum<<endl;
+
+
+    return 0;
+}

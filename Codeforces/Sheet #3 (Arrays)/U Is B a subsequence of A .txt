@@ -1,0 +1,51 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+long long n,m;
+cin>>n>>m;
+
+long long Realarr[n],Subarr[m];
+
+
+ for (int i=0; i<n; i++){
+    cin>>Realarr[i];
+    }
+
+
+ for (int i=0; i<m; i++){
+    cin>>Subarr[i];
+     }
+
+
+int j=0 , counter =0;
+int isSubSeq= false;
+
+for (int i=0; i<n; i++){
+
+    if (Realarr[i] == Subarr[j]){
+        counter++;
+        j++;
+    }
+
+    if (counter == m){
+        isSubSeq = true;
+        break;
+    }
+
+}
+
+
+if (isSubSeq){
+    cout<<"YES"<<endl;
+}
+
+else {
+    cout<<"NO"<<endl;
+}
+
+    return 0;
+}

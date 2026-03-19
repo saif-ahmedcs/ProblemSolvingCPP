@@ -1,0 +1,40 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int N, Q;
+    cin >> N >> Q;
+    long long A[100000];
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+    sort(A, A + N);
+   
+ while (Q--) {
+        long long X;
+        cin >> X;
+        int l = 0, r = N - 1;
+        bool found = false;
+        
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (A[m] == X) {
+                found = true;
+                break;
+            }
+            else if (A[m] < X) {
+                l = m + 1;
+            }
+            else {
+                r = m - 1;
+            }
+        }
+        if (found) {
+            cout << "found\n";
+        }
+        else {
+            cout << "not found\n";
+        }
+    }
+}
