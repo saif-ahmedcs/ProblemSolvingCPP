@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    string s;
+    if (!(cin >> s)) return 0;
+
+    vector<int> costs(26);
+    for (int i = 0; i < 26; i++) {
+        cin >> costs[i];
+    }
+
+    int n = s.length();
+    int first_fixed = -1;
+    for (int i = 0; i < n; i++) {
+        if (s[i] != '?') {
+            first_fixed = i;
+            break;
+        }
+    }
+
+    if (first_fixed == -1) {
+        for (int i = 0; i < n; i++) s[i] = 'a';
+    } else {
+        char lead_char = ' ';
+        for (char c = 'a'; c <= 'z'; c++) {
+            if (costs[c - 'a'] == costs[s[first_fixed] - 'a']) {
+                lead_char = c;
+                break;
+            }
+        }
+        for (int i = 0; i < first_fixed; i++) s[i] = lead_char;
+
+        for (int i = first_fixed + 1; i < n; i++) {
+            if (s[i] == '?') {
+                int j = i;
+                while (j < n && s[j] == '?') j++;
+
+                if (j == n) {
+                    char trail_char = ' ';
+                    for (char c = 'a'; c <= 'z'; c++) {
+                        if (costs[c - 'a'] == costs[s[i - 1] - 'a']) {
+                            trail_char = c;
+                            break;
+                        }
+                    }
+                    for (int k = i; k < n; k++) s[k] = trail_char;
+                } else {
+                    for (int k = i; k < j; k++) {
+                        int low = min(costs[s[k - 1] - 'a'], costs[s[j] - 'a']);
+                        int high = max(costs[s[k - 1] - 'a'], costs[s[j] - 'a']);
+                        for (char c = 'a'; c <= 'z'; c++) {
+                            if (costs[c - 'a'] >= low && costs[c - 'a'] <= high) {
+                                s[k] = c;
+                                break;
+                            }
+                        }
+                    }
+                }
+                i = j - 1;
+            }
+        }
+    }
+
+    long long total_cost = 0;
+    for (int i = 0; i < n - 1; i++) {
+        total_cost += abs(costs[s[i] - 'a'] - costs[s[i + 1] - 'a']);
+    }
+
+    cout << total_cost << "\n" << s << endl;
+
+    return 0;
+}

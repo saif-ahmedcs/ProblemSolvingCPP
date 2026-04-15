@@ -1,0 +1,28 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+int n;
+cin >> n;
+string s;
+cin >> s;
+string subStr= "";
+
+
+ for (int i=0; i<s.length(); i++){
+
+
+    if (subStr.empty() || s[i] != subStr.back())
+       subStr.push_back(s[i]);
+
+ }
+
+cout << subStr.length();
+
+
+
+    return 0;
+}

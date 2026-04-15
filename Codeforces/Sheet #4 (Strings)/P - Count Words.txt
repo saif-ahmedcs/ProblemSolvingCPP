@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <cstring>
+
+
+using namespace std;
+
+int main()
+{
+
+string s;
+getline(cin,s);
+int counter = 0;
+
+
+
+ for (int i=0; i<s.length(); i++){
+
+    if (s[i]== ' ' || s[i] == '!' || s[i]=='?' || s[i]==',' || s[i] == '.' ){
+
+        if (i!=0 && ((s[i-1] >= 'A' && s[i-1] <= 'Z')||(s[i-1] >= 'a' && s[i-1] <= 'z'))){
+            counter ++ ;
+        }
+    }
+ }
+
+    int n = s.back();
+    if (n > 0 && ((n >= 'A' && n <= 'Z') || (n >= 'a' && n <= 'z'))) {
+        counter ++;
+    }
+
+ 
+ 
+ cout << counter << endl;
+
+
+
+
+    return 0;
+}

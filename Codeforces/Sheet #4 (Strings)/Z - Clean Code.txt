@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+bool is_not_blank(const string& s) {
+    for (char c : s) {
+        if (c != ' ' && c != '\t' && c != '\n' && c != '\r' && c != '\v' && c != '\f') {
+            return true;
+        }
+    }
+    return false;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    string full_source = "";
+    string line;
+
+    while (getline(cin, line)) {
+        full_source += line + "\n";
+    }
+
+    string cleaned = "";
+    bool inBlock = false;
+    int n = full_source.length();
+
+    for (int i = 0; i < n; ++i) {
+        if (!inBlock) {
+            if (i + 1 < n && full_source[i] == '/' && full_source[i + 1] == '/') {
+                while (i < n && full_source[i] != '\n') {
+                    i++;
+                }
+                i--;
+            }
+            else if (i + 1 < n && full_source[i] == '/' && full_source[i + 1] == '*') {
+                inBlock = true;
+                i++;
+            }
+            else {
+                cleaned += full_source[i];
+            }
+        } else {
+            if (i + 1 < n && full_source[i] == '*' && full_source[i + 1] == '/') {
+                inBlock = false;
+                i++;
+            }
+        }
+    }
+
+    string current_line = "";
+    for (char c : cleaned) {
+        if (c == '\n') {
+            if (is_not_blank(current_line)) {
+                cout << current_line << "\n";
+            }
+            current_line = "";
+        } else {
+            current_line += c;
+        }
+    }
+    
+    if (is_not_blank(current_line)) {
+        cout << current_line << "\n";
+    }
+
+
+
+    return 0;
+}
+
+

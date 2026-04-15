@@ -1,0 +1,87 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+
+string s;
+cin >> s;
+string USERNAME = "username=";
+string pwd = "pwd=";
+string profile = "profile=";
+string role = "role=";
+string key = "key=";
+
+ for (int i=0; i<s.length(); i++){
+
+    if (s.substr(i,USERNAME.length())== USERNAME){
+         cout <<"username: ";
+        for (int j=i+9; j<s.length(); j++){
+
+           if (s[j]=='&'){
+            break;
+           }
+           cout <<s[j];
+        }
+        cout << endl;
+    }
+
+     else if (s.substr(i,pwd.length())== pwd){
+         cout <<"pwd: ";
+        for (int j=i+4; j<s.length(); j++){
+
+           if (s[j]=='&'){
+            break;
+           }
+           cout <<s[j];
+        }
+        cout << endl;
+        }
+
+           else if (s.substr(i,profile.length())== profile){
+         cout <<"profile: ";
+        for (int j=i+8; j<s.length(); j++){
+
+           if (s[j]=='&'){
+            break;
+           }
+           cout <<s[j];
+        }
+        cout << endl;
+        }
+
+     else if (s.substr(i,role.length())== role){
+         cout <<"role: ";
+        for (int j=i+5; j<s.length(); j++){
+
+           if (s[j]=='&'){
+            break;
+           }
+           cout <<s[j];
+        }
+        cout << endl;
+        }
+
+
+     else if (s.substr(i,key.length())== key){
+         cout <<"key: ";
+        for (int j=i+4; j<s.length(); j++){
+
+           cout <<s[j];
+        }
+        cout << endl;
+        }
+
+ }
+
+
+
+
+
+
+
+    return 0;
+}

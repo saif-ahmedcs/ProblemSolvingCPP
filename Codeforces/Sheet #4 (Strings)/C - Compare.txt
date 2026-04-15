@@ -1,0 +1,79 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+string s1,s2;
+cin>>s1>>s2;
+bool isEqual = false ;
+bool s1IsSmaller = false;
+bool s2IsSmaller = false;
+
+ if (s1.length() >= s2.length()){
+
+    for (int i=0; i<s2.length(); i++){
+
+      if (s1[i] < s2[i]){
+          s1IsSmaller = true;
+          break;
+        }
+
+      else if (s1[i] > s2[i]){
+           s2IsSmaller = true;
+          break;
+        }
+
+      else {
+          if (!isEqual){
+            isEqual = true;
+          }
+      }
+    }
+ }
+
+ else { // s2.length()> os1.length()
+
+    for (int i=0; i<s1.length(); i++){
+
+      if (s1[i] < s2[i]){
+          s1IsSmaller = true;
+          break;
+        }
+
+      else if (s1[i] > s2[i]){
+           s2IsSmaller = true;
+          break;
+        }
+
+      else {
+          if (!isEqual){
+            isEqual = true;
+          }
+      }
+    }
+ }
+
+ if (s1IsSmaller){
+    cout<<s1<<endl;
+ }
+
+ else if (s2IsSmaller){
+    cout<<s2<<endl;
+ }
+
+ else if (isEqual){
+
+   if (s1.length() >= s2.length()){
+    cout<<s2<<endl;
+   }
+   else {
+    cout<<s1<<endl;
+   }
+
+
+ }
+
+    return 0;
+}

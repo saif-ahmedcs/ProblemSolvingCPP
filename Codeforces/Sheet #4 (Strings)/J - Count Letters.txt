@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+
+
+string s;
+cin>>s;
+
+int length = s.length();
+int Freqarr[256] = {};
+
+
+  for(int i=0; i<length; i++){
+
+      Freqarr[s[i]]++;
+  }
+
+
+  for (char i='a'; i<='z'; i++){
+
+    if (Freqarr[i]>0){
+    cout<<i<<" : "<<Freqarr[i]<<endl;
+  }
+  }
+
+
+    return 0;
+}

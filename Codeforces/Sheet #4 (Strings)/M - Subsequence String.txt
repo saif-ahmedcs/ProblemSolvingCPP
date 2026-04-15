@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+
+string s;
+cin >> s;
+string subStr = "";
+string word = "hello";
+int x = 0;
+
+
+ for (int i=0; i<word.length(); i++){
+
+      if (i==0){
+        x = -1;
+      }
+
+      for (int j=x+1; j<s.length(); j++){
+
+         if (i==0 && s[j]== word[i]){
+            subStr.push_back(s[j]);
+            x = j;
+            break;
+         }
+
+         else if (i>0 && s[j] == word[i]){
+           subStr.push_back(s[j]);
+           x = j;
+           break;
+      }
+      }
+ }
+
+ if (subStr == word){
+    cout << "YES"<<endl;
+ }
+ else {
+    cout << "NO" << endl;
+ }
+
+    return 0;
+}

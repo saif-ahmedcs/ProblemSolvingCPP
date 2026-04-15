@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+
+    int freqArr[5] = {};
+
+    for (int i = 0; i < s.length(); i++) {
+
+        if (s[i] == 'E' || s[i]=='e') {
+            freqArr[0]++;
+        }
+        else if (s[i] == 'G' || s[i]== 'g'){
+            freqArr[1]++;
+        }
+        else if (s[i] == 'Y' || s[i]== 'y'){
+         freqArr[2]++;
+         }
+        else if (s[i] == 'P' || s[i]=='p'){
+         freqArr[3]++;
+        }
+        else if (s[i] == 'T' || s[i]=='t'){
+        freqArr[4]++;
+        }
+    }
+    
+    
+    if (freqArr[0]==freqArr[1] && freqArr[1]==freqArr[2] && freqArr[2]==freqArr[3] && freqArr[3]==freqArr[4]) {
+        cout << freqArr[0] << endl;
+    } else {
+        int minFreq = *min_element(freqArr, freqArr + 5);
+        cout << minFreq << endl;
+    }
+
+    
+    
+    return 0;
+}
