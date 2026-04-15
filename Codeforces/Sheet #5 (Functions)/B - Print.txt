@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+void PrintFrom1ToN (int n){
+
+ for (int i = 1; i<=n; i++){
+    if (i!=n){
+    cout << i <<" ";
+ }
+ else {
+    cout <<i;
+ }
+
+}
+
+}
+
+int main() {
+
+int n ;
+cin >> n;
+
+PrintFrom1ToN(n);
+
+
+
+
+    return 0;
+}

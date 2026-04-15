@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+
+void PrintArr3 (int n, int arr[]){
+
+ for (int i=0; i<n; i++){
+
+    if (i==n-1){
+        cout <<arr[i];
+    }
+    else {
+    cout <<arr[i]<<" ";
+ }
+ }
+}
+
+
+int main()
+{
+
+int n;
+cin>>n;
+int arr[n];
+int arr2[n];
+int arr3Size = n*2;
+int arr3[arr3Size]= {};
+
+ for (int i=0; i<n; i++){
+    cin >> arr[i];
+ }
+
+ for (int i=0; i<n; i++){
+    cin >> arr2[i];
+ }
+
+ for (int i=0; i<n; i++){
+    arr3[i] = arr2[i];
+ }
+
+ for (int i=0; i<n; i++){
+    arr3[i+n] = arr[i];
+ }
+
+PrintArr3(arr3Size,arr3);
+
+
+    return 0;
+}

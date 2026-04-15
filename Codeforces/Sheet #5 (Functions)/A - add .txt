@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int CalcSum(int x, int y){
+
+  return x + y;
+}
+
+int main() {
+
+int x , y;
+cin >> x >>y;
+
+cout << CalcSum (x,y) << endl;
+
+
+
+
+
+
+    return 0;
+}

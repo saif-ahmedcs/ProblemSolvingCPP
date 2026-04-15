@@ -1,0 +1,37 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+
+void PrintNtimes (int t){
+
+int num;
+char c;
+
+while (t--){
+  cin >> num;
+  cin>>c;
+
+  for (int i=0; i<num; i++){
+    cout << c <<" ";
+  }
+  cout << endl;
+}
+
+}
+
+
+int main()
+{
+
+int t;
+cin >> t;
+
+PrintNtimes(t);
+
+
+
+    return 0;
+}

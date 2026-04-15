@@ -1,0 +1,32 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+long long calc(long long x, long long n){
+
+ long long result = (pow(x,0)-1);
+
+  for (int i=2; i<=n; i+=2){
+
+    if (i>n){
+        break;
+    }
+    result += pow(x,i);
+  }
+
+  return result;
+}
+
+
+int main()
+{
+
+ long long x,y;
+ cin >> x >> y;
+
+  cout <<  calc(x,y) <<endl;
+
+
+    return 0;
+}

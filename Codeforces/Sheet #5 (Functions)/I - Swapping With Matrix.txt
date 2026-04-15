@@ -1,0 +1,60 @@
+#include <iostream>
+
+using namespace std;
+const int s = 501;
+void SwapMatrix(int arr[s][s],int x, int y,int n){
+
+  for (int i=1; i<=n; i++){
+
+     if (i!= x){
+         continue;
+        }
+
+    for (int j=1; j<=n; j++){
+        swap(arr[x][j], arr[y][j]);
+    }
+
+     for (int q=1; q<=n; q++){
+        swap(arr[q][x], arr[q][y]);
+     }
+
+ }
+
+for (int i=1; i<=n; i++){
+
+    for (int j=1; j<=n; j++){
+        if (j==n){
+            cout<<arr[i][j];
+        }
+        else{
+        cout<<arr[i][j] << " ";
+    }
+    }
+    cout << endl;
+
+ }
+
+}
+
+
+int main()
+{
+
+int n,x,y;
+cin >> n>>x>>y;
+
+int arr[s][s];
+
+ for (int i=1; i<=n; i++){
+
+    for (int j=1; j<=n; j++){
+        cin>>arr[i][j];
+    }
+
+ }
+
+ SwapMatrix(arr,x,y,n);
+
+
+    return 0;
+}

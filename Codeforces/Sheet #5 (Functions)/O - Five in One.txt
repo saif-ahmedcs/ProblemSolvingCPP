@@ -1,0 +1,167 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <cmath>
+
+using namespace std;
+
+
+void FindMax(int n, int arr[]){
+
+int maximum = arr[0];
+
+  for (int i=1; i<n; i++){
+
+    if (arr[i] > maximum){
+        maximum = arr[i];
+    }
+
+  }
+
+  cout <<"The maximum number : "<<maximum<<endl;
+
+}
+
+void FindMin(int n, int arr[]){
+
+int manimum = arr[0];
+
+  for (int i=1; i<n; i++){
+
+    if (arr[i] < manimum){
+        manimum = arr[i];
+    }
+
+  }
+
+    cout <<"The minimum number : "<<manimum<<endl;
+
+}
+
+void CountPrimes(int n, int arr[]){
+
+int counter = 0;
+bool isprime = true;
+
+  for (int i = 0; i<n; i++){
+
+       isprime = true;
+
+        if (arr[i]<=1){
+            continue;
+        }
+
+      for (int j = 2; j<=sqrt(arr[i]); j++){
+
+             if (arr[i] % j == 0){
+                isprime = false;
+                break;
+             }
+      }
+
+      if (isprime){
+        counter ++;
+      }
+
+
+  }
+
+ cout << "The number of prime numbers : " << counter << endl;
+
+}
+
+
+bool isPalindrome(int num){
+    string s = to_string(num);
+    int n = s.size();
+    for(int i = 0; i < n/2; i++){
+        if(s[i] != s[n-1-i])
+            return false;
+    }
+    return true;
+}
+
+
+
+void PalindromeCheck(int n, int arr[]){
+
+string s;
+int counter = 0;
+
+ for (int i=0; i<n; i++){
+
+    if(isPalindrome(arr[i])){
+        counter++;
+    }
+ }
+
+
+cout << "The number of palindrome numbers : "<<counter<<endl;
+
+
+}
+
+
+void FindMaxNumOfDevisors(int n, int arr[]){
+
+int maximum = 0;
+int maximumElement = 0;
+int counter =0;
+
+  for (int i=0; i<n; i++){
+
+     counter = 0;
+
+
+    for (int j=1; j<=sqrt(arr[i]); j++){
+
+        if (arr[i]%j == 0){
+            if (j*j == arr[i]){
+                counter ++;
+            }
+            else {
+                    counter += 2;
+            }
+        }
+    }
+
+    if (maximum < counter){
+     maximum = counter;
+     maximumElement = arr[i];
+    }
+
+    else if (maximum == counter){
+        if (maximumElement < arr[i]){
+            maximumElement = arr[i];
+        }
+    }
+
+  }
+
+  cout <<"The number that has the maximum number of divisors : " << maximumElement <<endl;
+
+
+}
+
+int main()
+{
+
+int n;
+cin>>n;
+int arr[n];
+
+ for (int i=0; i<n; i++){
+    cin>>arr[i];
+ }
+
+
+ FindMax(n,arr);
+ FindMin(n,arr);
+ CountPrimes(n,arr);
+ PalindromeCheck(n,arr);
+ FindMaxNumOfDevisors(n,arr);
+
+
+
+    return 0;
+}

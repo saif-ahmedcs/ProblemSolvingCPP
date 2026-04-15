@@ -1,0 +1,33 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+
+float calcavarage(int t){
+
+int x = t;
+double n;
+double sum = 0;
+
+while (t--){
+  cin >> n;
+  sum+=n;
+}
+
+double avarage = sum/x;
+ return avarage;
+}
+
+
+
+int main()
+{
+
+int t;
+cin>>t;
+
+ cout << fixed << setprecision(6) << calcavarage(t) <<endl;
+
+    return 0;
+}

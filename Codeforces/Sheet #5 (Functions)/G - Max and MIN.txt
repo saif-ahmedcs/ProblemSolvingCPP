@@ -1,0 +1,48 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+
+using namespace std;
+
+
+void FindMinAndMax(int arr[],int length){
+
+
+  int maximum = arr[0];
+  int minimum = arr[0];
+
+   for (int i=0; i<length; i++){
+
+      if (arr[i] > maximum){
+        maximum = arr[i];
+      }
+
+      else if (arr[i]<minimum){
+        minimum = arr[i];
+      }
+
+   }
+
+  cout << minimum <<" " << maximum << endl;
+
+}
+
+
+
+
+
+int main()
+{
+
+int length;
+cin >> length;
+int arr[length];
+
+   for (int i=0; i<length; i++){
+    cin >> arr[i];
+   }
+
+FindMinAndMax(arr,length);
+
+    return 0;
+}
